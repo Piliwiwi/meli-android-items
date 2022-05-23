@@ -2,6 +2,7 @@ ext {
     appCompatVersion = "1.4.1"
     constraintLayoutVersion = '2.1.4'
     coreKtxVersion = '1.7.0'
+    hiltVersion = '2.41'
     jUnit5Version = '5.8.2'
     mockkVersion = '1.12.3'
     moshiConverterVersion = '2.9.0'
@@ -12,6 +13,8 @@ ext {
     appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
     constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
+    hilt = "com.google.dagger:hilt-android:$hiltVersion"
+    hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
     jUnit5 = "org.junit.jupiter:junit-jupiter-api:$jUnit5Version"
     jUnit5Engine = "org.junit.jupiter:junit-jupiter-engine:$jUnit5Version"
     mockk = "io.mockk:mockk:$mockkVersion"

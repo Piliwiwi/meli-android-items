@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -52,4 +54,6 @@ dependencies {
     implementation rootProject.coreKtx
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
+    implementation rootProject.hilt
+    implementation rootProject.hiltCompiler
 }
