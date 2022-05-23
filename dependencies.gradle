@@ -4,6 +4,7 @@ ext {
     coreKtxVersion = '1.7.0'
     jUnit5Version = '5.8.2'
     mockkVersion = '1.12.3'
+    moshiConverterVersion = '2.9.0'
     navigationVersion = '2.4.2'
     okHttpVersion = '4.9.3'
     retrofitVersion = '2.9.0'
@@ -14,6 +15,7 @@ ext {
     jUnit5 = "org.junit.jupiter:junit-jupiter-api:$jUnit5Version"
     jUnit5Engine = "org.junit.jupiter:junit-jupiter-engine:$jUnit5Version"
     mockk = "io.mockk:mockk:$mockkVersion"
+    moshiConverter = "com.squareup.retrofit2:converter-moshi:$moshiConverterVersion"
     navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     navigationUi = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
