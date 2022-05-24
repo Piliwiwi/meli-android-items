@@ -4,6 +4,7 @@ ext {
     coreKtxVersion = '1.7.0'
     hiltVersion = '2.41'
     jUnit5Version = '5.8.2'
+    materialVersion = '1.6.0'
     mockkVersion = '1.12.3'
     moshiConverterVersion = '2.9.0'
     navigationVersion = '2.4.2'
@@ -17,6 +18,7 @@ ext {
     hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
     jUnit5 = "org.junit.jupiter:junit-jupiter-api:$jUnit5Version"
     jUnit5Engine = "org.junit.jupiter:junit-jupiter-engine:$jUnit5Version"
+    material = "com.google.android.material:material:$materialVersion"
     mockk = "io.mockk:mockk:$mockkVersion"
     moshiConverter = "com.squareup.retrofit2:converter-moshi:$moshiConverterVersion"
     navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"

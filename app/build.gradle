@@ -50,9 +50,13 @@ android {
 }
 
 dependencies {
-    implementation rootProject.coreKtx
+    implementation project(':network')
+
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
+    implementation rootProject.coreKtx
     implementation rootProject.hilt
-    implementation rootProject.hiltCompiler
+    implementation rootProject.material
+
+    kapt rootProject.hiltCompiler
 }
