@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ui_black">#555555</color>
+    <color name="ui_white">#FFFFFF</color>
+    <color name="ui_light_gray">#6C6C6C</color>
+    <color name="ui_blue">#3E7DFA</color>
+    <color name="ui_green">#3B9E46</color>
+    <color name="ui_orange">#E86029</color>
+</resources>

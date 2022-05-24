@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AwesomeText">
+        <attr name="ui_text_type" format="enum">
+            <enum name="title" value="1" />
+            <enum name="value" value="2" />
+            <enum name="info" value="3" />
+            <enum name="highlight_info" value="4" />
+            <enum name="subtitle" value="5" />
+            <enum name="additional_info" value="6" />
+        </attr>
+    </declare-styleable>
+</resources>

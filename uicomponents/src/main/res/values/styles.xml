@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="UiDefaultColorStyle">
+        <item name="android:textColor">@color/ui_black</item>
+    </style>
+
+    <style name="UiFontTitle" parent="UiDefaultColorStyle">
+    </style>
+
+    <style name="UiFontValue" parent="UiDefaultColorStyle">
+    </style>
+
+    <style name="UiFontInfo">
+        <item name="android:textColor">@color/ui_green</item>
+    </style>
+
+    <style name="UiFontHighlightInfo">
+        <item name="android:textColor">@color/ui_green</item>
+    </style>
+
+    <style name="UiFontSubtitle" parent="UiDefaultColorStyle">
+    </style>
+
+    <style name="UiFontAdditionalInfo">
+        <item name="android:textColor">@color/ui_light_gray</item>
+    </style>
+</resources>
