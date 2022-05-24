@@ -16,3 +16,4 @@ rootProject.name = "Awesome Items"
 include ':app'
 include ':network'
 include ':mvi'
+include ':uicomponents'
