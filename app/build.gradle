@@ -50,7 +50,9 @@ android {
 }
 
 dependencies {
+    implementation project(':mvi')
     implementation project(':network')
+    implementation project(':uicomponents')
 
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
