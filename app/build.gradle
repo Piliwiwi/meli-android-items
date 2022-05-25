@@ -57,8 +57,15 @@ dependencies {
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
     implementation rootProject.coreKtx
+    implementation rootProject.coroutinesCore
     implementation rootProject.hilt
     implementation rootProject.material
+    implementation rootProject.moshiConverter
+    implementation rootProject.retrofit
+
+    testImplementation rootProject.mockk
+    testImplementation rootProject.jUnit5
+    testRuntimeOnly rootProject.jUnit5Engine
 
     kapt rootProject.hiltCompiler
 }
