@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/ui_margin_12">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/product_card_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/product_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/ui_product_image"
+            app:layout_constraintBottom_toTopOf="@id/product_card_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/ui_light_gray" />
+
+        <cl.arech.uicomponents.view.AwesomeText
+            android:id="@+id/product_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ui_margin_16"
+            app:layout_constraintTop_toBottomOf="@id/product_card_image"
+            app:ui_text_type="title"
+            tools:text="Motorola" />
+
+        <cl.arech.uicomponents.view.AwesomeText
+            android:id="@+id/product_card_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ui_margin_16"
+            app:layout_constraintTop_toBottomOf="@id/product_card_title"
+            app:ui_text_type="value"
+            tools:text="$140.000" />
+
+        <cl.arech.uicomponents.view.AwesomeText
+            android:id="@+id/product_card_free_shipping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:ui_text_type="highlight_info"
+            tools:text="Free shipping" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

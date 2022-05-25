@@ -10,6 +10,7 @@
 
     <!-- Margins -->
     <dimen name="ui_margin_6">6dp</dimen>
+    <dimen name="ui_margin_12">12dp</dimen>
     <dimen name="ui_margin_16">16dp</dimen>
     <dimen name="ui_margin_26">26dp</dimen>
     <dimen name="ui_margin_36">36dp</dimen>
