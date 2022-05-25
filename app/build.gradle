@@ -52,6 +52,7 @@ android {
 dependencies {
     implementation project(':mvi')
     implementation project(':network')
+    implementation project(':testingtools')
     implementation project(':uicomponents')
 
     implementation rootProject.appCompat
@@ -64,8 +65,12 @@ dependencies {
     implementation rootProject.retrofit
 
     testImplementation rootProject.mockk
-    testImplementation rootProject.jUnit5
+    testImplementation rootProject.jUnit5Api
+    testImplementation rootProject.jUnit5Params
+    testImplementation rootProject.extJUnit
     testRuntimeOnly rootProject.jUnit5Engine
+
+    androidTestImplementation rootProject.extJUnit
 
     kapt rootProject.hiltCompiler
 }

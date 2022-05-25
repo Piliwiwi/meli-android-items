@@ -1,4 +1,4 @@
-package cl.arech.awesomeitems
+package cl.arech.testingtools
 
 import org.junit.Test
 
