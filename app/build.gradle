@@ -60,6 +60,7 @@ dependencies {
     implementation rootProject.coreKtx
     implementation rootProject.coroutinesCore
     implementation rootProject.hilt
+    implementation rootProject.lifecycleViewModelKtx
     implementation rootProject.material
     implementation rootProject.moshiConverter
     implementation rootProject.retrofit
