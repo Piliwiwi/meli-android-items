@@ -8,8 +8,8 @@ import cl.arech.awesomeitems.products.ui.search.SearchFragmentDirections
 import javax.inject.Inject
 
 class ProductsNavigator @Inject constructor() {
-    fun navigateFromSearchToList(view: View?) = view?.apply {
-        val direction = SearchFragmentDirections.fromSearchToList()
+    fun navigateFromSearchToList(view: View?, query: String) = view?.apply {
+        val direction = SearchFragmentDirections.fromSearchToList(query)
         safeNavigation(this, direction)
     }
 
