@@ -2,7 +2,6 @@ package cl.arech.awesomeitems.products.presentation.list
 
 import cl.arech.awesomeitems.products.data.ProductsDataRepository
 import cl.arech.awesomeitems.products.data.remote.model.RemoteProducts
-import cl.arech.awesomeitems.products.factory.ProductFactory
 import cl.arech.awesomeitems.products.factory.ProductFactory.makeProducts
 import cl.arech.awesomeitems.products.factory.ProductFactory.makeRemoteProducts
 import cl.arech.awesomeitems.products.presentation.list.ListAction.LoadProductsAction
@@ -13,7 +12,6 @@ import cl.arech.awesomeitems.products.presentation.list.mapper.ProductsMapper
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.mvi.execution.ExecutionThreadEnvironment
 import cl.arech.mvi.execution.ExecutionThreadFactory
-import cl.arech.testingtools.factory.RandomFactory
 import cl.arech.testingtools.factory.RandomFactory.generateString
 import io.mockk.coEvery
 import io.mockk.every
@@ -23,7 +21,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertTrue
 
 @FlowPreview
