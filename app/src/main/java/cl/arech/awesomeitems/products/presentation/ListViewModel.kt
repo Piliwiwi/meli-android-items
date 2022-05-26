@@ -7,6 +7,7 @@ import cl.arech.awesomeitems.products.presentation.list.ListProcessor
 import cl.arech.awesomeitems.products.presentation.list.ListReducer
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.RetrySearchUIntent
+import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchAnotherProductsUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchProductsInitialUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
@@ -51,6 +52,7 @@ class ListViewModel @Inject constructor(
         when (this) {
             is SearchProductsInitialUIntent -> LoadProductsAction(query)
             is RetrySearchUIntent -> LoadProductsAction(query)
+            is SearchAnotherProductsUIntent -> LoadProductsAction(query)
         }
 
     override fun uiStates() = uiState
