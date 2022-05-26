@@ -21,14 +21,14 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
         }
     }
 
-    infix fun DefaultUiState.reduceWith(result: ListResult): ListUiState {
+    private infix fun DefaultUiState.reduceWith(result: ListResult): ListUiState {
         return when (result) {
             InProgress -> LoadingUiState
             else -> throw UnsupportedReduceException(this, result)
         }
     }
 
-    infix fun LoadingUiState.reduceWith(result: ListResult): ListUiState {
+    private infix fun LoadingUiState.reduceWith(result: ListResult): ListUiState {
         return when (result) {
             Error -> ErrorUiState
             is Success -> ShowProductsUiState(result.products)
@@ -36,14 +36,14 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
         }
     }
 
-    infix fun ErrorUiState.reduceWith(result: ListResult): ListUiState {
+    private infix fun ErrorUiState.reduceWith(result: ListResult): ListUiState {
         return when (result) {
             InProgress -> LoadingUiState
             else -> throw UnsupportedReduceException(this, result)
         }
     }
 
-    infix fun ShowProductsUiState.reduceWith(result: ListResult): ListUiState {
+    private infix fun ShowProductsUiState.reduceWith(result: ListResult): ListUiState {
         throw UnsupportedReduceException(this, result)
     }
 }
