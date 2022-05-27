@@ -39,4 +39,5 @@ dependencies {
     implementation rootProject.constraintLayout
     implementation rootProject.lottie
     implementation rootProject.material
+    implementation rootProject.picasso
 }
