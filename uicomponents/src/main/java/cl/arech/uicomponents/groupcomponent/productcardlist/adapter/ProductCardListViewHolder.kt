@@ -8,7 +8,7 @@ class ProductCardListViewHolder(
     private val binding: UiItemProductCardBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(attrs: AttrsProductCard) {
-
+    fun bind(attrs: AttrsProductCard) = binding.apply {
+        itemProductCard.setAttributes(attrs)
     }
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import cl.arech.uicomponents.component.AttrsProductCard
 import cl.arech.uicomponents.databinding.UiGroupComponentProductCardListBinding
+import cl.arech.uicomponents.groupcomponent.productcardlist.adapter.ProductCardListAdapter
 
 data class AttrsProductCardList(
     val items: List<AttrsProductCard>,
@@ -24,5 +25,14 @@ class ProductCardList @JvmOverloads constructor(
             val inflater = context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
             binding = UiGroupComponentProductCardListBinding.inflate(inflater, this)
         }
+    }
+
+    fun setAttributes(attrs: AttrsProductCardList) {
+        setupList(attrs)
+    }
+
+    private fun setupList(attrs: AttrsProductCardList) = binding?.apply {
+        val adapter = ProductCardListAdapter(attrs)
+        productCardRecyclerview.adapter = adapter
     }
 }

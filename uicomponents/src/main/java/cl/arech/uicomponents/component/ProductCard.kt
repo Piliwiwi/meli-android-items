@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import cl.arech.uicomponents.databinding.UiComponentProductCardBinding
+import com.squareup.picasso.Picasso
 
 data class AttrsProductCard(
     val imageUrl: String,
@@ -36,7 +37,9 @@ class ProductCard @JvmOverloads constructor(
     }
 
     private fun setupImage(imageUrl: String) = binding?.apply {
-
+        Picasso.get()
+            .load(imageUrl)
+            .into(productCardImage)
     }
 
     private fun setTexts(attrs: AttrsProductCard) = binding?.apply {
