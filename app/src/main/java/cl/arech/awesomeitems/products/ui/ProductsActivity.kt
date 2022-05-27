@@ -10,7 +10,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import cl.arech.awesomeitems.R
 import cl.arech.awesomeitems.databinding.ActivityProductsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductsActivity : AppCompatActivity() {
     private var binding: ActivityProductsBinding? = null
 

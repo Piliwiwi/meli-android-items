@@ -12,6 +12,7 @@ import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchProduc
 import cl.arech.awesomeitems.products.presentation.list.ListUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
 import cl.arech.mvi.MviPresentation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
@@ -25,6 +26,7 @@ import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
+@HiltViewModel
 class ListViewModel @Inject constructor(
     private val processor: ListProcessor,
     private val reducer: ListReducer,
