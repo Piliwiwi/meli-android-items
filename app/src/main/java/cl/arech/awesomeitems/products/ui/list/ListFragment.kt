@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import cl.arech.awesomeitems.AwesomeItemsApplication
 import cl.arech.awesomeitems.databinding.FragmentProductsListBinding
 import cl.arech.awesomeitems.products.presentation.ListViewModel
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent
@@ -17,7 +20,10 @@ import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiSta
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ErrorUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.LoadingUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ShowProductsUiState
+import cl.arech.awesomeitems.products.presentation.list.model.Products
+import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
 import cl.arech.mvi.MviUi
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
@@ -28,9 +34,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @FlowPreview
+@AndroidEntryPoint
 class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     private var binding: FragmentProductsListBinding? = null
 
@@ -78,12 +86,34 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     }
 
     override fun renderUiStates(uiStates: ListUiState) {
+        hideAll()
         when (uiStates) {
-            DefaultUiState -> TODO()
-            LoadingUiState -> TODO()
-            ErrorUiState -> TODO()
-            is ShowProductsUiState -> TODO()
+            DefaultUiState -> {}
+            LoadingUiState -> showLoading()
+            ErrorUiState -> showErrorTemplate()
+            is ShowProductsUiState -> showProductList(uiStates.products)
         }
+    }
+
+    private fun hideAll() = binding?.apply {
+        loader.isVisible = false
+        productList.isVisible = false
+    }
+
+    private fun showLoading() = binding?.apply {
+        loader.isVisible = true
+    }
+
+    private fun showErrorTemplate() = binding?.apply {
+
+    }
+
+    private fun showProductList(products: Products) = binding?.apply {
+        productList.isVisible = true
+
+        productList.setAttributes(
+            with(AttrsProductsMapper()) { products.toAttrs() }
+        )
     }
 
     private fun emit(intent: ListUIntent) {

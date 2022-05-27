@@ -3,4 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <cl.arech.uicomponents.groupcomponent.productcardlist.ProductCardList
+        android:id="@+id/product_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <cl.arech.uicomponents.view.AwesomeLoader
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
