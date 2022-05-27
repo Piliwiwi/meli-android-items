@@ -14,6 +14,7 @@ ext {
     moshiVersion = '1.13.0'
     navigationVersion = '2.4.2'
     okHttpVersion = '4.9.3'
+    picassoVersion = '2.8'
     retrofitVersion = '2.9.0'
 
     appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
@@ -40,6 +41,7 @@ ext {
     navigationUi = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
     okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    picasso = "com.squareup.picasso:picasso:$picassoVersion"
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     retrofitConverterGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     safeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
