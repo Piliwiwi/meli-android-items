@@ -1,10 +1,10 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -30,6 +30,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -69,6 +70,7 @@ dependencies {
     implementation rootProject.lifecycleViewModelKtx
     implementation rootProject.material
     implementation rootProject.moshiConverter
+    implementation rootProject.moshiKotlin
     implementation rootProject.navigationFragment
     implementation rootProject.navigationUi
     implementation rootProject.retrofit
@@ -82,4 +84,5 @@ dependencies {
     androidTestImplementation rootProject.extJUnit
 
     kapt rootProject.hiltCompiler
+    kapt rootProject.moshiCodegen
 }
