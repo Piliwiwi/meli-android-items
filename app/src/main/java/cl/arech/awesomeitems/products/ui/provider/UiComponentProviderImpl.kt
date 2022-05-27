@@ -2,6 +2,7 @@ package cl.arech.awesomeitems.products.ui.provider
 
 import android.content.Context
 import cl.arech.awesomeitems.R
+import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
@@ -26,6 +27,12 @@ class UiComponentProviderImpl @Inject constructor(
 
     override fun getProductListAttrs(
         products: Products,
-        onClick: (String) -> Unit,
-    ) = with(productsMapper) { products.toAttrs(onClick) }
+        onClick: (Product) -> Unit,
+    ) = with(productsMapper) {
+        products.toAttrs { productId ->
+            onClick(
+                products.results.first { product -> product.id == productId }
+            )
+        }
+    }
 }

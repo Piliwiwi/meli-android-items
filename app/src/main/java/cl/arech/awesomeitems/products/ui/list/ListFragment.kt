@@ -141,8 +141,8 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         productList.isVisible = true
 
         productList.setAttributes(
-            uiProvider.getProductListAttrs(products) { productId ->
-                navigator.navigateFromListToDetails(view, productId)
+            uiProvider.getProductListAttrs(products) { product ->
+                navigator.navigateFromListToDetails(view, product)
             }
         )
     }

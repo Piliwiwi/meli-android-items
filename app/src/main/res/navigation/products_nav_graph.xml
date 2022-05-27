@@ -39,8 +39,8 @@
         android:name="cl.arech.awesomeitems.products.ui.details.DetailsFragment"
         android:label="" >
         <argument
-            android:name="productId"
-            app:argType="string" />
+            android:name="product"
+            app:argType="cl.arech.awesomeitems.products.presentation.list.model.Product" />
     </fragment>
 
 </navigation>

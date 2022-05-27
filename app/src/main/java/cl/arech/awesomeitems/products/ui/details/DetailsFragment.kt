@@ -30,7 +30,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setupView() = binding?.apply {
-        testText.text = "Detalles del producto ${args.productId}"
+        testText.text = "Detalles del producto ${args.product}"
     }
 
     override fun onDestroy() {
