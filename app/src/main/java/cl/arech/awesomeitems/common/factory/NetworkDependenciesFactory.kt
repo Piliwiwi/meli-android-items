@@ -1,12 +1,13 @@
 package cl.arech.awesomeitems.common.factory
 
 import android.content.Context
+import cl.arech.awesomeitems.BuildConfig
 import cl.arech.network.config.NetworkDependencies
 
 object NetworkDependenciesFactory {
     fun makeNetworkDependencies(context: Context): NetworkDependencies =
         NetworkDependencies(
-            flavorName = "",//BuildConfig.FLAVOR,
+            flavorName = BuildConfig.FLAVOR,
             context = context
         )
 }
