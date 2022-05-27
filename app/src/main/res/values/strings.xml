@@ -1,3 +1,5 @@
 <resources>
     <string name="search_products">Buscar productos...</string>
+    <string name="an_error_has_ocurred">¡Oh! Ha ocurrido un error</string>
+    <string name="check_your_internet_conection_and_retry">Revisa tu conexión a internet e intenta buscar de nuevo.</string>
 </resources>

@@ -41,9 +41,9 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
-@FlowPreview
 @AndroidEntryPoint
+@FlowPreview
+@ExperimentalCoroutinesApi
 class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     private var binding: FragmentProductsListBinding? = null
 
@@ -96,6 +96,21 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         emit(SearchProductsInitialUIntent(args.query))
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setSearchBar()
+    }
+
+    private fun setSearchBar() = binding?.apply {
+        search.isVisible = true
+
+        search.setAttributes(
+            uiProvider.getSearchInputAttrs { query ->
+                emit(SearchAnotherProductsUIntent(query))
+            }
+        )
+    }
+
     override fun renderUiStates(uiStates: ListUiState) {
         hideAll()
         when (uiStates) {
@@ -109,6 +124,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     private fun hideAll() = binding?.apply {
         loader.isVisible = false
         productList.isVisible = false
+        errorTemplate.isVisible = false
     }
 
     private fun showLoading() = binding?.apply {
@@ -116,18 +132,13 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     }
 
     private fun showErrorTemplate() = binding?.apply {
+        errorTemplate.isVisible = true
 
+        errorTemplate.setAttributes(uiProvider.errorTemplateAttrs)
     }
 
     private fun showProductList(products: Products) = binding?.apply {
         productList.isVisible = true
-        search.isVisible = true
-
-        search.setAttributes(
-            uiProvider.getSearchInputAttrs { query ->
-                emit(SearchAnotherProductsUIntent(query))
-            }
-        )
 
         productList.setAttributes(
             uiProvider.getProductListAttrs(products) { productId ->
@@ -140,5 +151,10 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         viewLifecycleOwner.lifecycleScope.launch {
             userIntents.emit(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

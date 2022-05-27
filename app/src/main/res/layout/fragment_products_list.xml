@@ -28,4 +28,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search" />
 
+    <cl.arech.uicomponents.template.ErrorTemplate
+        android:id="@+id/error_template"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
