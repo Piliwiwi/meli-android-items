@@ -3,7 +3,7 @@
     {
       "title": "Motorola G6 Plus 64 Gb Nimbus",
       "price": 17999,
-      "thumbnail": "http://mla-s2-p.mlstatic.com/795558-MLA31003306206_062019-I.jpg",
+      "thumbnail": "https://mla-s2-p.mlstatic.com/795558-MLA31003306206_062019-I.jpg",
       "shipping": {
         "free_shipping": false
       }
@@ -11,7 +11,7 @@
     {
       "title": "Motorola G6 32 Gb Plata",
       "price": 14899,
-      "thumbnail": "http://mla-s1-p.mlstatic.com/685061-MLA31003463570_062019-I.jpg",
+      "thumbnail": "https://mla-s1-p.mlstatic.com/685061-MLA31003463570_062019-I.jpg",
       "shipping": {
         "free_shipping": true
       }
