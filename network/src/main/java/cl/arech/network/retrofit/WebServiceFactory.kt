@@ -3,6 +3,7 @@ package cl.arech.network.retrofit
 import android.content.Context
 import cl.arech.network.config.Environment
 import cl.arech.network.config.WebServiceConfig
+import cl.arech.network.config.WebServiceConfig.Url
 import cl.arech.network.retrofit.exception.InvalidEnvironmentException
 
 class WebServiceFactory<TWebService> constructor(
@@ -14,7 +15,7 @@ class WebServiceFactory<TWebService> constructor(
         return when (environment) {
             Environment.Local.name -> createLocalWebServiceConfig()
             Environment.Remote.name -> createRemoteWebServiceConfig(
-                baseUrl = WebServiceConfig.Url.REMOTE_HOST
+                baseUrl = Url.REMOTE_HOST,
             )
             else -> throw InvalidEnvironmentException("Current environment $environment is not supported")
         }
@@ -24,7 +25,7 @@ class WebServiceFactory<TWebService> constructor(
         LocalWebService<TWebService>().create(
             context = context,
             tClass = tClass,
-            hostUrl = WebServiceConfig.Url.LOCAL_HOST
+            hostUrl = Url.LOCAL_HOST
         )
 
     private fun createRemoteWebServiceConfig(
