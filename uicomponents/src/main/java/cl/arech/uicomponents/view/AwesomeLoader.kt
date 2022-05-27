@@ -24,7 +24,7 @@ class AwesomeLoader @JvmOverloads constructor(
         initAttrs()
     }
 
-    private fun initAttrs() = binding?.loadingView?.apply {
+    private fun initAttrs() = binding?.lottieAnimation?.apply {
         setFailureListener { Log.e("ANIMATION ERROR", it.toString()) }
         setAnimation("animations/$SEARCH_PRODUCT")
     }
