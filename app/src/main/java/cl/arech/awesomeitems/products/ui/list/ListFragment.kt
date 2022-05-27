@@ -25,6 +25,7 @@ import cl.arech.awesomeitems.products.presentation.list.mapper.ProductsMapper
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
 import cl.arech.awesomeitems.products.ui.navigator.ProductsNavigator
+import cl.arech.awesomeitems.products.ui.provider.UiComponentProvider
 import cl.arech.mvi.MviUi
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,6 +53,9 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
 
     @Inject
     lateinit var navigator: ProductsNavigator
+
+    @Inject
+    lateinit var uiProvider: UiComponentProvider
 
     private val userIntents: MutableSharedFlow<ListUIntent> = MutableSharedFlow()
 
@@ -120,16 +124,14 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         search.isVisible = true
 
         search.setAttributes(
-            AttrsAwesomeSearch(
-                onSubmit = { query -> emit(SearchAnotherProductsUIntent(query)) }
-            )
+            uiProvider.getSearchInputAttrs { query ->
+                emit(SearchAnotherProductsUIntent(query))
+            }
         )
 
         productList.setAttributes(
-            with(AttrsProductsMapper()) {
-                products.toAttrs { productId ->
-                    navigator.navigateFromListToDetails(view, productId)
-                }
+            uiProvider.getProductListAttrs(products) { productId ->
+                navigator.navigateFromListToDetails(view, productId)
             }
         )
     }

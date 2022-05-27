@@ -5,10 +5,12 @@ import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.SearchView.OnQueryTextListener
+import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import cl.arech.uicomponents.databinding.UiComponentAwesomeSearchBinding
 
 data class AttrsAwesomeSearch(
+    @StringRes val hint: Int? = null,
     val onSubmit: (String) -> Unit = {},
     val onChange: (String) -> Unit = {},
 )
@@ -28,7 +30,12 @@ class AwesomeSearch @JvmOverloads constructor(
     }
 
     fun setAttributes(attrs: AttrsAwesomeSearch) {
+        setTexts(attrs)
         setSearchEvents(attrs)
+    }
+
+    private fun setTexts(attrs: AttrsAwesomeSearch) = binding?.apply {
+        attrs.hint?.let { awesomeSearchView.queryHint = context.getString(it) }
     }
 
     private fun setSearchEvents(attrs: AttrsAwesomeSearch) = binding?.apply {
