@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ProductsWebService {
-    @GET("/search")
+    @GET("search")
     suspend fun getProducts(@Query(Q) query: String): RemoteProducts
 }
