@@ -7,8 +7,9 @@ import cl.arech.uicomponents.groupcomponent.productcardlist.AttrsProductCardList
 import javax.inject.Inject
 
 class AttrsProductsMapper @Inject constructor() {
-    fun Products.toAttrs() = AttrsProductCardList(
-        items = results.toAttrs()
+    fun Products.toAttrs(onClick: (String) -> Unit) = AttrsProductCardList(
+        items = results.toAttrs(),
+        onClick = onClick
     )
 
     private fun List<Product>.toAttrs() = map {
@@ -16,6 +17,7 @@ class AttrsProductsMapper @Inject constructor() {
     }
 
     private fun Product.toAttrs() = AttrsProductCard(
+        identifier = id,
         imageUrl = thumbnail,
         title = title,
         value = price.toString(), // TODO: Format

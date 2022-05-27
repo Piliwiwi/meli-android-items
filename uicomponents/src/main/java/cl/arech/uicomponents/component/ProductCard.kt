@@ -10,6 +10,7 @@ import cl.arech.uicomponents.databinding.UiComponentProductCardBinding
 import com.squareup.picasso.Picasso
 
 data class AttrsProductCard(
+    val identifier: String,
     val imageUrl: String,
     val title: String,
     val value: String,

@@ -13,8 +13,8 @@ class ProductsNavigator @Inject constructor() {
         safeNavigation(this, direction)
     }
 
-    fun navigateFromListToDetails(view: View?) = view?.apply {
-        val direction = ListFragmentDirections.fromListToDetails()
+    fun navigateFromListToDetails(view: View?, productId: String) = view?.apply {
+        val direction = ListFragmentDirections.fromListToDetails(productId)
         safeNavigation(this, direction)
     }
 

@@ -11,6 +11,7 @@ import cl.arech.uicomponents.groupcomponent.productcardlist.adapter.ProductCardL
 
 data class AttrsProductCardList(
     val items: List<AttrsProductCard>,
+    val onClick: (String) -> Unit
 )
 
 class ProductCardList @JvmOverloads constructor(

@@ -13,7 +13,7 @@ class ProductCardListAdapter(private val attrs: AttrsProductCardList) :
     )
 
     override fun onBindViewHolder(holder: ProductCardListViewHolder, position: Int) {
-        holder.bind(attrs.items[position])
+        holder.bind(attrs.items[position], attrs.onClick)
     }
 
     override fun getItemCount() = attrs.items.size

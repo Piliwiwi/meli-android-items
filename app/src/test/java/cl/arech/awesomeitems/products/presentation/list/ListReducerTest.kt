@@ -55,11 +55,22 @@ internal class ListReducerTest {
         assert(nextState is LoadingUiState)
     }
 
+    @Test
+    fun `given ShowProductsUiState, when InProgress, then LoadingUiState`() {
+        val products = makeProducts(6)
+        val currentState = ShowProductsUiState(products)
+        val result = InProgress
+
+        val nextState = with(reducer) { currentState reduceWith result }
+
+        assert(nextState is LoadingUiState)
+    }
+
     @Test(expected = UnsupportedReduceException::class)
-    fun `given ShowProductsUiState, when any result, then throw exception`() {
+    fun `given ShowProductsUiState, when non-InProgress, then throw exception`() {
         val products = makeProducts(6)
         val previousState = ShowProductsUiState(products)
-        val result = InProgress
+        val result = Error
 
         with(reducer) { previousState reduceWith result }
     }

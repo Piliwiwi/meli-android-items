@@ -8,7 +8,8 @@ class ProductCardListViewHolder(
     private val binding: UiItemProductCardBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(attrs: AttrsProductCard) = binding.apply {
+    fun bind(attrs: AttrsProductCard, onClick: (String) -> Unit) = binding.apply {
         itemProductCard.setAttributes(attrs)
+        itemProductCard.setOnClickListener { onClick(attrs.identifier) }
     }
 }

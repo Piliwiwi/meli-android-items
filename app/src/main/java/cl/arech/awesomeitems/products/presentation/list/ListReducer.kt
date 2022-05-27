@@ -44,6 +44,9 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
     }
 
     private infix fun ShowProductsUiState.reduceWith(result: ListResult): ListUiState {
-        throw UnsupportedReduceException(this, result)
+        return when (result) {
+            InProgress -> LoadingUiState
+            else -> throw UnsupportedReduceException(this, result)
+        }
     }
 }

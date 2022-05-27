@@ -25,6 +25,7 @@ internal class ProductsMapperTest {
     }
 
     private fun assertProductEquals(remote: RemoteProduct?, presentation: Product) {
+        assertEquals(remote?.id.orEmpty(), presentation.id, "id")
         assertEquals(remote?.title.orEmpty(), presentation.title, "title")
         assertEquals(remote?.price ?: 0, presentation.price, "price")
         assertEquals(remote?.thumbnail.orEmpty(), presentation.thumbnail, "thumbnail")

@@ -14,15 +14,19 @@ import cl.arech.awesomeitems.AwesomeItemsApplication
 import cl.arech.awesomeitems.databinding.FragmentProductsListBinding
 import cl.arech.awesomeitems.products.presentation.ListViewModel
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent
+import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchAnotherProductsUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchProductsInitialUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ErrorUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.LoadingUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ShowProductsUiState
+import cl.arech.awesomeitems.products.presentation.list.mapper.ProductsMapper
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
+import cl.arech.awesomeitems.products.ui.navigator.ProductsNavigator
 import cl.arech.mvi.MviUi
+import cl.arech.uicomponents.component.AttrsAwesomeSearch
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -45,6 +49,9 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     private val viewModel: ListViewModel by viewModels()
 
     private val args: ListFragmentArgs by navArgs()
+
+    @Inject
+    lateinit var navigator: ProductsNavigator
 
     private val userIntents: MutableSharedFlow<ListUIntent> = MutableSharedFlow()
 
@@ -110,9 +117,20 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
 
     private fun showProductList(products: Products) = binding?.apply {
         productList.isVisible = true
+        search.isVisible = true
+
+        search.setAttributes(
+            AttrsAwesomeSearch(
+                onSubmit = { query -> emit(SearchAnotherProductsUIntent(query)) }
+            )
+        )
 
         productList.setAttributes(
-            with(AttrsProductsMapper()) { products.toAttrs() }
+            with(AttrsProductsMapper()) {
+                products.toAttrs { productId ->
+                    navigator.navigateFromListToDetails(view, productId)
+                }
+            }
         )
     }
 
