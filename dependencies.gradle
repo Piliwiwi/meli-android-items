@@ -8,6 +8,7 @@ ext {
     hiltXVersion = '1.0.0-alpha03'
     jUnit5Version = '5.8.2'
     lifecycleVersion = '2.4.1'
+    lottieVersion = '5.1.1'
     materialVersion = '1.6.0'
     mockkVersion = '1.12.3'
     moshiVersion = '1.13.0'
@@ -29,6 +30,7 @@ ext {
     jUnit5Engine = "org.junit.jupiter:junit-jupiter-engine:$jUnit5Version"
     jUnit5Params = "org.junit.jupiter:junit-jupiter-params:$jUnit5Version"
     lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    lottie = "com.airbnb.android:lottie:$lottieVersion"
     material = "com.google.android.material:material:$materialVersion"
     mockk = "io.mockk:mockk:$mockkVersion"
     moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"

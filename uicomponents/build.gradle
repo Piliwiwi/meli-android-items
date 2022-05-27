@@ -37,5 +37,6 @@ dependencies {
     implementation rootProject.coreKtx
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
+    implementation rootProject.lottie
     implementation rootProject.material
 }
