@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/ui_margin_16">
-
+    
     <cl.arech.uicomponents.component.AwesomeSearch
         android:id="@+id/search"
         android:layout_width="match_parent"
@@ -12,13 +12,36 @@
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <cl.arech.uicomponents.groupcomponent.productcardlist.ProductCardList
-        android:id="@+id/product_list"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/ui_margin_16"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search" />
+        app:layout_constraintTop_toBottomOf="@id/search">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/list_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search">
+
+            <cl.arech.uicomponents.groupcomponent.productcardlist.ProductCardList
+                android:id="@+id/product_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ui_margin_16"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/product_list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <cl.arech.uicomponents.view.AwesomeLoader
         android:id="@+id/loader"
@@ -33,17 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:ui_lottie_type="warning_red"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search" />
+        app:layout_constraintTop_toBottomOf="@id/search"
+        app:ui_lottie_type="warning_red" />
 
     <cl.arech.uicomponents.template.InfoTemplate
         android:id="@+id/empty_template"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:ui_lottie_type="empty_search"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search" />
+        app:layout_constraintTop_toBottomOf="@id/search"
+        app:ui_lottie_type="empty_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

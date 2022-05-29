@@ -125,7 +125,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
 
     private fun hideAll() = binding?.apply {
         loader.isVisible = false
-        productList.isVisible = false
+        listContainer.isVisible = false
         errorTemplate.isVisible = false
         emptyTemplate.isVisible = false
         search.isVisible = true
@@ -149,7 +149,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
     }
 
     private fun showProductList(products: Products) = binding?.apply {
-        productList.isVisible = true
+        listContainer.isVisible = true
 
         productList.setAttributes(
             uiProvider.getProductListAttrs(products) { product ->
