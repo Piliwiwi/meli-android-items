@@ -35,8 +35,9 @@ class UiComponentProviderImpl @Inject constructor(
     override fun getProductListAttrs(
         products: Products,
         onClick: (Product) -> Unit,
+        onScrollEnd: () -> Unit,
     ) = with(productsMapper) {
-        products.toAttrs { productId ->
+        products.toAttrs(onScrollEnd) { productId ->
             onClick(
                 products.results.first { product -> product.id == productId }
             )

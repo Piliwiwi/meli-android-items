@@ -8,9 +8,10 @@ import cl.arech.utils.formatter.toAmountFormat
 import javax.inject.Inject
 
 class AttrsProductsMapper @Inject constructor() {
-    fun Products.toAttrs(onClick: (String) -> Unit) = AttrsProductCardList(
+    fun Products.toAttrs(onScrollEnd: () -> Unit, onClick: (String) -> Unit) = AttrsProductCardList(
         items = results.toAttrs(),
-        onClick = onClick
+        onClick = onClick,
+        onScrollEnd = onScrollEnd
     )
 
     private fun List<Product>.toAttrs() = map {

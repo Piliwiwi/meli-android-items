@@ -34,10 +34,13 @@ android {
 }
 
 dependencies {
+    implementation project(':utils')
+
     implementation rootProject.coreKtx
     implementation rootProject.appCompat
     implementation rootProject.constraintLayout
     implementation rootProject.lottie
     implementation rootProject.material
     implementation rootProject.picasso
+    implementation rootProject.recyclerView
 }

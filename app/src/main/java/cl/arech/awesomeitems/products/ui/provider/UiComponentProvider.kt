@@ -10,6 +10,10 @@ interface UiComponentProvider {
     val errorTemplateAttrs: AttrsInfoTemplate
     val emptyTemplateAttrs: AttrsInfoTemplate
 
-    fun getSearchInputAttrs(onSubmit: (String) -> Unit) : AttrsAwesomeSearch
-    fun getProductListAttrs(products: Products, onClick: (Product) -> Unit) : AttrsProductCardList
+    fun getSearchInputAttrs(onSubmit: (String) -> Unit): AttrsAwesomeSearch
+    fun getProductListAttrs(
+        products: Products,
+        onClick: (Product) -> Unit,
+        onScrollEnd: () -> Unit,
+    ): AttrsProductCardList
 }

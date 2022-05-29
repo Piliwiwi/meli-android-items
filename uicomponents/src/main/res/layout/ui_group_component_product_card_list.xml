@@ -9,7 +9,6 @@
         android:id="@+id/product_card_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="false"
         app:spanCount="2"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 

@@ -29,6 +29,7 @@ import cl.arech.awesomeitems.products.ui.navigator.ProductsNavigator
 import cl.arech.awesomeitems.products.ui.provider.UiComponentProvider
 import cl.arech.mvi.MviUi
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -152,9 +153,15 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         listContainer.isVisible = true
 
         productList.setAttributes(
-            uiProvider.getProductListAttrs(products) { product ->
-                navigator.navigateFromListToDetails(view, product)
-            }
+            uiProvider.getProductListAttrs(
+                products = products,
+                onClick = { product ->
+                    navigator.navigateFromListToDetails(view, product)
+                },
+                onScrollEnd = {
+                    
+                }
+            )
         )
     }
 
