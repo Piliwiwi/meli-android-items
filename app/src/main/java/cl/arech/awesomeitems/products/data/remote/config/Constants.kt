@@ -2,6 +2,7 @@ package cl.arech.awesomeitems.products.data.remote.config
 
 object Constants {
     const val ATTRIBUTES = "attributes"
+    const val AVAILABLE_QUANTITY = "available_quantity"
     const val FREE_SHIPPING = "free_shipping"
     const val ID = "id"
     const val NAME = "name"

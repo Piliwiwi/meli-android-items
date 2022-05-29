@@ -21,6 +21,7 @@ class ProductsMapper @Inject constructor() {
         title = title.orEmpty(),
         price = price?.toAmountFormat().orEmpty(),
         thumbnail = thumbnail.orEmpty(),
+        stock = stock?.toString().orEmpty(),
         shipping = shipping?.toPresentation() ?: Shipping(),
         attributes = attributes?.map { it.toPresentation() }.orEmpty()
     )

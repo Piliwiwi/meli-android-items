@@ -1,6 +1,7 @@
 <resources>
     <string name="search_products">Buscar productos...</string>
     <string name="an_error_has_ocurred">¡Oh! Ha ocurrido un error</string>
+    <string name="available_stock">Stock disponible: %s</string>
     <string name="we_have_not_found_awesome_products">No hemos encontrado productos Asombrosos :(</string>
     <string name="check_your_internet_conection_and_retry">Revisa tu conexión a internet e intenta buscar de nuevo.</string>
     <string name="check_that_your_words_are_correctly_written_or_try_another_description">Revisa que tus palabras estén bien escritas o intenta con otra descripción.</string>

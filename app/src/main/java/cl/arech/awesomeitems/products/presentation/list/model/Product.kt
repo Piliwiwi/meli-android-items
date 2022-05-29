@@ -11,6 +11,7 @@ data class Product(
     val title: String,
     val price: String,
     val thumbnail: String,
+    val stock: String,
     val shipping: Shipping,
     val attributes: List<Attribute>,
 ) : Parcelable

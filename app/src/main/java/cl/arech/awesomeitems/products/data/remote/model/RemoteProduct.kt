@@ -1,6 +1,7 @@
 package cl.arech.awesomeitems.products.data.remote.model
 
 import cl.arech.awesomeitems.products.data.remote.config.Constants.ATTRIBUTES
+import cl.arech.awesomeitems.products.data.remote.config.Constants.AVAILABLE_QUANTITY
 import cl.arech.awesomeitems.products.data.remote.config.Constants.ID
 import cl.arech.awesomeitems.products.data.remote.config.Constants.PRICE
 import cl.arech.awesomeitems.products.data.remote.config.Constants.SHIPPING
@@ -15,6 +16,7 @@ data class RemoteProduct(
     @Json(name = TITLE) val title: String?,
     @Json(name = PRICE) val price: Double?,
     @Json(name = THUMBNAIL) val thumbnail: String?,
+    @Json(name = AVAILABLE_QUANTITY) val stock: Int?,
     @Json(name = SHIPPING) val shipping: RemoteShipping?,
     @Json(name = ATTRIBUTES) val attributes: List<RemoteAttribute>?,
 )

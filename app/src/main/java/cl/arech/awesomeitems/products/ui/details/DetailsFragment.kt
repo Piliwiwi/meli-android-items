@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import cl.arech.awesomeitems.R
 import cl.arech.awesomeitems.databinding.FragmentProductsDetailsBinding
 import cl.arech.awesomeitems.products.ui.provider.UiComponentProvider
 import cl.arech.utils.extension.setImage
@@ -42,6 +43,7 @@ class DetailsFragment : Fragment() {
         price.text = args.product.price
         freeShipping.isVisible = args.product.shipping.hasFreeShipping
         image.setImage(args.product.thumbnail)
+        stock.text = getString(R.string.available_stock, args.product.stock)
         detailList.setAttributes(
             uiProvider.getDetailsAttrs(args.product.attributes)
         )

@@ -13,6 +13,16 @@
         app:layout_constraintBottom_toTopOf="@id/image_guide_line"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <cl.arech.uicomponents.view.AwesomeText
+        android:id="@+id/stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_oval_light_gray"
+        android:padding="@dimen/ui_margin_6"
+        app:layout_constraintLeft_toLeftOf="@id/image"
+        app:layout_constraintTop_toTopOf="@id/image"
+        app:ui_text_type="info" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/image_guide_line"
         android:layout_width="match_parent"
