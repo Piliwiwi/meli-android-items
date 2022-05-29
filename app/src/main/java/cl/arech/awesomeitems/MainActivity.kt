@@ -8,6 +8,7 @@ import cl.arech.awesomeitems.databinding.ActivityMainBinding
 import cl.arech.awesomeitems.products.ui.ProductsActivity
 import cl.arech.uicomponents.template.InfoTemplate
 import cl.arech.uicomponents.view.AwesomeLoader
+import cl.arech.utils.extension.onAnimationEnd
 import com.airbnb.lottie.LottieDrawable
 
 class MainActivity : AppCompatActivity() {
@@ -27,15 +28,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupSplash() = binding?.lottieAnimation?.apply {
         setFailureListener { Log.e("ANIMATION ERROR", it.toString()) }
         setAnimation("animations/$AWESOME_LOTTIE_JSON")
-        addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationEnd(animation: Animator?) {
-                navigateToProducts()
-            }
-
-            override fun onAnimationStart(animation: Animator?) {}
-            override fun onAnimationCancel(animation: Animator?) {}
-            override fun onAnimationRepeat(animation: Animator?) {}
-        })
+        onAnimationEnd {
+            navigateToProducts()
+        }
     }
 
     private fun navigateToProducts() {

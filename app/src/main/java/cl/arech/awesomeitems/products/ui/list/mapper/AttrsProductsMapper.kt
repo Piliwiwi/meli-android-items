@@ -4,7 +4,6 @@ import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.uicomponents.component.AttrsProductCard
 import cl.arech.uicomponents.groupcomponent.productcardlist.AttrsProductCardList
-import cl.arech.utils.formatter.toAmountFormat
 import javax.inject.Inject
 
 class AttrsProductsMapper @Inject constructor() {

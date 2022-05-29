@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import cl.arech.uicomponents.R
 import cl.arech.uicomponents.databinding.UiTemplateInfoBinding
+import cl.arech.utils.extension.onAnimationEnd
 import com.airbnb.lottie.LottieDrawable
 import com.airbnb.lottie.LottieDrawable.INFINITE
 
@@ -63,20 +64,13 @@ class InfoTemplate @JvmOverloads constructor(
 
     private fun reproduceAnimation(attrs: AttrsInfoTemplate) = binding?.infoTemplateIcon?.apply {
         playAnimation()
-        addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationEnd(animation: Animator?) {
-                if (attrs.loop) {
-                    setMinFrame(MIN_FRAME_LOOP)
-                    repeatCount = INFINITE
-                    playAnimation()
-                }
+        onAnimationEnd {
+            if (attrs.loop) {
+                setMinFrame(MIN_FRAME_LOOP)
+                repeatCount = INFINITE
+                playAnimation()
             }
-
-            override fun onAnimationStart(animation: Animator?) {}
-            override fun onAnimationCancel(animation: Animator?) {}
-            override fun onAnimationRepeat(animation: Animator?) {}
-        })
-
+        }
     }
 
     private fun setTexts(attrs: AttrsInfoTemplate) = binding?.apply {
