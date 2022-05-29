@@ -1,15 +1,11 @@
 package cl.arech.awesomeitems
 
-import android.animation.Animator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import cl.arech.awesomeitems.databinding.ActivityMainBinding
 import cl.arech.awesomeitems.products.ui.ProductsActivity
-import cl.arech.uicomponents.template.InfoTemplate
-import cl.arech.uicomponents.view.AwesomeLoader
 import cl.arech.utils.extension.onAnimationEnd
-import com.airbnb.lottie.LottieDrawable
 
 class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
