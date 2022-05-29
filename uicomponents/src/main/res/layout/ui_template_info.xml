@@ -10,7 +10,7 @@
         android:padding="@dimen/ui_margin_16">
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/error_template_icon"
+            android:id="@+id/info_template_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -21,20 +21,20 @@
             app:lottie_loop="false" />
 
         <cl.arech.uicomponents.view.AwesomeText
-            android:id="@+id/error_template_title"
+            android:id="@+id/info_template_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ui_margin_36"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/error_template_icon"
+            app:layout_constraintTop_toBottomOf="@id/info_template_icon"
             app:ui_text_type="value" />
 
         <cl.arech.uicomponents.view.AwesomeText
-            android:id="@+id/error_template_description"
+            android:id="@+id/info_template_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ui_margin_16"
-            app:layout_constraintTop_toBottomOf="@id/error_template_title"
+            app:layout_constraintTop_toBottomOf="@id/info_template_title"
             app:ui_text_type="title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

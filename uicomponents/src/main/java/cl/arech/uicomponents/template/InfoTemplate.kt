@@ -1,0 +1,73 @@
+package cl.arech.uicomponents.template
+
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.util.AttributeSet
+import android.util.Log
+import android.view.LayoutInflater
+import androidx.constraintlayout.widget.ConstraintLayout
+import cl.arech.uicomponents.R
+import cl.arech.uicomponents.databinding.UiTemplateInfoBinding
+
+data class AttrsInfoTemplate(
+    val title: String,
+    val description: String,
+)
+
+class InfoTemplate @JvmOverloads constructor(
+    context: Context,
+    private val attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : ConstraintLayout(context, attrs, defStyleAttr) {
+    private var binding: UiTemplateInfoBinding? = null
+
+    init {
+        if (binding == null) {
+            val inflater = context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            binding = UiTemplateInfoBinding.inflate(inflater, this)
+        }
+
+        initAttributes()
+    }
+
+    private fun initAttributes() {
+        val styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.InfoTemplate)
+        val loader = styledAttributes.getInt(R.styleable.InfoTemplate_ui_lottie_type, WARNING_RED)
+
+        try {
+            binding?.infoTemplateIcon?.apply {
+                setFailureListener { Log.e("ANIMATION ERROR", it.toString()) }
+                setAnimation(
+                    "animations/${
+                        when (loader) {
+                            WARNING_RED -> "warning_red.json"
+                            EMPTY_SEARCH -> "empty_search.json"
+                            else -> "warning_red.json"
+                        }
+                    }"
+                )
+            }
+        } finally {
+            styledAttributes.recycle()
+        }
+    }
+
+    fun setAttributes(attrs: AttrsInfoTemplate) {
+        reproduceAnimation()
+        setTexts(attrs)
+    }
+
+    private fun reproduceAnimation() = binding?.infoTemplateIcon?.apply {
+        playAnimation()
+    }
+
+    private fun setTexts(attrs: AttrsInfoTemplate) = binding?.apply {
+        infoTemplateTitle.text = attrs.title
+        infoTemplateDescription.text = attrs.description
+    }
+
+    companion object {
+        const val WARNING_RED = 1
+        const val EMPTY_SEARCH = 2
+    }
+}

@@ -28,11 +28,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search" />
 
-    <cl.arech.uicomponents.template.ErrorTemplate
+    <cl.arech.uicomponents.template.InfoTemplate
         android:id="@+id/error_template"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
+        app:ui_lottie_type="warning_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search" />
+
+    <cl.arech.uicomponents.template.InfoTemplate
+        android:id="@+id/empty_template"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:ui_lottie_type="empty_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search" />
 

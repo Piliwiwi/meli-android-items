@@ -4,10 +4,10 @@ import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
 import cl.arech.uicomponents.groupcomponent.productcardlist.AttrsProductCardList
-import cl.arech.uicomponents.template.AttrsErrorTemplate
+import cl.arech.uicomponents.template.AttrsInfoTemplate
 
 interface UiComponentProvider {
-    val errorTemplateAttrs: AttrsErrorTemplate
+    val errorTemplateAttrs: AttrsInfoTemplate
 
     fun getSearchInputAttrs(onSubmit: (String) -> Unit) : AttrsAwesomeSearch
     fun getProductListAttrs(products: Products, onClick: (Product) -> Unit) : AttrsProductCardList
