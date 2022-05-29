@@ -69,6 +69,7 @@ dependencies {
     implementation rootProject.coroutinesCore
     implementation rootProject.hilt
     implementation rootProject.lifecycleViewModelKtx
+    implementation rootProject.lottie
     implementation rootProject.material
     implementation rootProject.moshiConverter
     implementation rootProject.moshiKotlin

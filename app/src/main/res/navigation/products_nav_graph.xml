@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="cl.arech.awesomeitems.products.ui.search.SearchFragment"
-        android:label="">
+        android:label="@string/search_awesome_items"
+        tools:layout="@layout/fragment_products_search">
         <action
             android:id="@+id/from_search_to_list"
             app:destination="@id/listFragment"
@@ -21,7 +22,8 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="cl.arech.awesomeitems.products.ui.list.ListFragment"
-        android:label="">
+        android:label="@string/search_awesome_items"
+        tools:layout="@layout/fragment_products_list">
         <argument
             android:name="query"
             app:argType="string" />
@@ -37,7 +39,8 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="cl.arech.awesomeitems.products.ui.details.DetailsFragment"
-        android:label="" >
+        android:label="@string/product_detail"
+        tools:layout="@layout/fragment_products_details">
         <argument
             android:name="product"
             app:argType="cl.arech.awesomeitems.products.presentation.list.model.Product" />
