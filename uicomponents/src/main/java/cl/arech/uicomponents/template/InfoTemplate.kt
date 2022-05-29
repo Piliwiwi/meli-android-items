@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import cl.arech.uicomponents.R
 import cl.arech.uicomponents.databinding.UiTemplateInfoBinding
+import com.airbnb.lottie.LottieDrawable
+import com.airbnb.lottie.LottieDrawable.INFINITE
 
 data class AttrsInfoTemplate(
     val title: String,
     val description: String,
+    val loop: Boolean = false,
 )
 
 class InfoTemplate @JvmOverloads constructor(
@@ -53,11 +56,12 @@ class InfoTemplate @JvmOverloads constructor(
     }
 
     fun setAttributes(attrs: AttrsInfoTemplate) {
-        reproduceAnimation()
+        reproduceAnimation(attrs)
         setTexts(attrs)
     }
 
-    private fun reproduceAnimation() = binding?.infoTemplateIcon?.apply {
+    private fun reproduceAnimation(attrs: AttrsInfoTemplate) = binding?.infoTemplateIcon?.apply {
+        if (attrs.loop) repeatCount = INFINITE
         playAnimation()
     }
 
