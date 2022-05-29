@@ -1,5 +1,6 @@
 package cl.arech.uicomponents.template
 
+import android.animation.Animator
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.util.AttributeSet
@@ -61,8 +62,21 @@ class InfoTemplate @JvmOverloads constructor(
     }
 
     private fun reproduceAnimation(attrs: AttrsInfoTemplate) = binding?.infoTemplateIcon?.apply {
-        if (attrs.loop) repeatCount = INFINITE
         playAnimation()
+        addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationEnd(animation: Animator?) {
+                if (attrs.loop) {
+                    setMinFrame(MIN_FRAME_LOOP)
+                    repeatCount = INFINITE
+                    playAnimation()
+                }
+            }
+
+            override fun onAnimationStart(animation: Animator?) {}
+            override fun onAnimationCancel(animation: Animator?) {}
+            override fun onAnimationRepeat(animation: Animator?) {}
+        })
+
     }
 
     private fun setTexts(attrs: AttrsInfoTemplate) = binding?.apply {
@@ -73,5 +87,6 @@ class InfoTemplate @JvmOverloads constructor(
     companion object {
         const val WARNING_RED = 1
         const val EMPTY_SEARCH = 2
+        const val MIN_FRAME_LOOP = 150
     }
 }
