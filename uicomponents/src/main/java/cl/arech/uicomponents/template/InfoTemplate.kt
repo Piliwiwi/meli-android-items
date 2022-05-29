@@ -1,6 +1,5 @@
 package cl.arech.uicomponents.template
 
-import android.animation.Animator
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.util.AttributeSet
@@ -10,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import cl.arech.uicomponents.R
 import cl.arech.uicomponents.databinding.UiTemplateInfoBinding
 import cl.arech.utils.extension.onAnimationEnd
-import com.airbnb.lottie.LottieDrawable
 import com.airbnb.lottie.LottieDrawable.INFINITE
 
 data class AttrsInfoTemplate(
