@@ -5,7 +5,7 @@ import cl.arech.awesomeitems.R
 import cl.arech.awesomeitems.products.presentation.list.model.Attribute
 import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
-import cl.arech.awesomeitems.products.ui.details.AttrsAttributeMapper
+import cl.arech.awesomeitems.products.ui.details.mapper.AttrsAttributeMapper
 import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
 import cl.arech.uicomponents.component.detaillist.AttrsDetail

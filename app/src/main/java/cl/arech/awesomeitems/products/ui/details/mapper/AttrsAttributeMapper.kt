@@ -1,4 +1,4 @@
-package cl.arech.awesomeitems.products.ui.details
+package cl.arech.awesomeitems.products.ui.details.mapper
 
 import cl.arech.awesomeitems.products.presentation.list.model.Attribute
 import cl.arech.uicomponents.component.detaillist.AttrsDetail

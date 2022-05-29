@@ -2,13 +2,16 @@ package cl.arech.awesomeitems.products.presentation.list
 
 import cl.arech.awesomeitems.products.data.ProductsDataRepository
 import cl.arech.awesomeitems.products.data.remote.model.RemoteProducts
+import cl.arech.awesomeitems.products.factory.ProductFactory.makeEmptyProducts
 import cl.arech.awesomeitems.products.factory.ProductFactory.makeProducts
 import cl.arech.awesomeitems.products.factory.ProductFactory.makeRemoteProducts
 import cl.arech.awesomeitems.products.presentation.list.ListAction.LoadProductsAction
+import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Empty
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Error
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.InProgress
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Success
 import cl.arech.awesomeitems.products.presentation.list.mapper.ProductsMapper
+import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
 import cl.arech.mvi.execution.ExecutionThreadEnvironment
 import cl.arech.mvi.execution.ExecutionThreadFactory
@@ -67,6 +70,22 @@ internal class ListProcessorTest {
         val mapOutput = result.last()
 
         assertTrue(mapOutput is Success)
+    }
+
+    @Test
+    fun `given LoadProductsAction, when actionProcessor, then Empty`() = runBlocking {
+        val query = generateString()
+        val remoteResponse = makeRemoteProducts(6)
+        val response =  makeEmptyProducts()
+
+        stubMapper(remoteResponse, response)
+        stubRepositorySearchProductsSuccess(query, remoteResponse)
+
+        val result = processor.actionProcessor(LoadProductsAction(query)).toList()
+
+        val mapOutput = result.last()
+
+        assertTrue(mapOutput is Empty)
     }
 
     @Test

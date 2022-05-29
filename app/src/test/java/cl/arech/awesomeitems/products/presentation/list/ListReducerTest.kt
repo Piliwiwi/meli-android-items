@@ -5,6 +5,7 @@ import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsR
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.InProgress
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Success
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
+import cl.arech.awesomeitems.products.presentation.list.ListUiState.EmptySearchUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ErrorUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.LoadingUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ShowProductsUiState
@@ -66,10 +67,28 @@ internal class ListReducerTest {
         assert(nextState is LoadingUiState)
     }
 
+    @Test
+    fun `given EmptySearchUiState, when InProgress, then LoadingUiState`() {
+        val currentState = EmptySearchUiState
+        val result = InProgress
+
+        val nextState = with(reducer) { currentState reduceWith result }
+
+        assert(nextState is LoadingUiState)
+    }
+
     @Test(expected = UnsupportedReduceException::class)
     fun `given ShowProductsUiState, when non-InProgress, then throw exception`() {
         val products = makeProducts(6)
         val previousState = ShowProductsUiState(products)
+        val result = Error
+
+        with(reducer) { previousState reduceWith result }
+    }
+
+    @Test(expected = UnsupportedReduceException::class)
+    fun `given EmptySearchUiState, when non-InProgress, then throw exception`() {
+        val previousState = EmptySearchUiState
         val result = Error
 
         with(reducer) { previousState reduceWith result }
