@@ -12,7 +12,7 @@ import com.squareup.moshi.JsonClass
 data class RemoteProduct(
     @Json(name = ID) val id: String?,
     @Json(name = TITLE) val title: String?,
-    @Json(name = PRICE) val price: Int?,
+    @Json(name = PRICE) val price: Double?,
     @Json(name = THUMBNAIL) val thumbnail: String?,
     @Json(name = SHIPPING) val shipping: RemoteShipping?,
 )

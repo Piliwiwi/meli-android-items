@@ -16,7 +16,7 @@ class ProductsMapper @Inject constructor() {
     private fun RemoteProduct.toPresentation() = Product(
         id = id.orEmpty(),
         title = title.orEmpty(),
-        price = price ?: 0,
+        price = price ?: 0.0,
         thumbnail = thumbnail.orEmpty(),
         shipping = shipping?.toPresentation() ?: Shipping()
     )
