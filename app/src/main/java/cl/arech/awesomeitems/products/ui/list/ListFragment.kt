@@ -128,9 +128,11 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         productList.isVisible = false
         errorTemplate.isVisible = false
         emptyTemplate.isVisible = false
+        search.isVisible = true
     }
 
     private fun showLoading() = binding?.apply {
+        search.isVisible = false
         loader.isVisible = true
     }
 

@@ -1,5 +1,6 @@
 package cl.arech.awesomeitems.products.presentation.list
 
+import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Empty
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Error
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.InProgress
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Success
@@ -33,6 +34,7 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
     private infix fun LoadingUiState.reduceWith(result: ListResult): ListUiState {
         return when (result) {
             Error -> ErrorUiState
+            Empty -> EmptySearchUiState
             is Success -> ShowProductsUiState(result.products)
             else -> throw UnsupportedReduceException(this, result)
         }
