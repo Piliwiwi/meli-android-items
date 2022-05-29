@@ -2,6 +2,7 @@ package cl.arech.awesomeitems.products.presentation.list
 
 import cl.arech.awesomeitems.products.data.ProductsDataRepository
 import cl.arech.awesomeitems.products.presentation.list.ListAction.LoadProductsAction
+import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Empty
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Error
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.InProgress
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Success
@@ -30,7 +31,7 @@ class ListProcessor @Inject constructor(
     private fun loadProductsProcessor(query: String) = flow<ListResult> {
         repository.searchProducts(query).collect { remoteProducts ->
             val products = with(mapper) { remoteProducts.toPresentation() }
-            emit(Success(products))
+            emit(if (products.results.isEmpty()) Empty else Success(products))
         }
     }.onStart {
         emit(InProgress)

@@ -7,6 +7,7 @@ sealed class ListResult : MviResult {
     sealed class LoadProductsResult : ListResult() {
         object InProgress : LoadProductsResult()
         object Error : LoadProductsResult()
+        object Empty : LoadProductsResult()
         data class Success(val products: Products) : LoadProductsResult()
     }
 }

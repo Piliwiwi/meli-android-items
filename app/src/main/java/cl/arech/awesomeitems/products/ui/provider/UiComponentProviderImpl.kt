@@ -19,6 +19,11 @@ class UiComponentProviderImpl @Inject constructor(
             title = context.getString(R.string.an_error_has_ocurred),
             description = context.getString(R.string.check_your_internet_conection_and_retry)
         )
+    override val emptyTemplateAttrs: AttrsInfoTemplate
+        get() = AttrsInfoTemplate(
+            title = context.getString(R.string.we_have_not_found_awesome_products),
+            description = context.getString(R.string.check_that_your_words_are_correctly_written_or_try_another_description)
+        )
 
     override fun getSearchInputAttrs(onSubmit: (String) -> Unit) = AttrsAwesomeSearch(
         hint = R.string.search_products,

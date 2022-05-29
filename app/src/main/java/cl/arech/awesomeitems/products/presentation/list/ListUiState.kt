@@ -7,5 +7,6 @@ sealed class ListUiState : MviUiState {
     object DefaultUiState : ListUiState()
     object LoadingUiState : ListUiState()
     object ErrorUiState : ListUiState()
+    object EmptySearchUiState : ListUiState()
     data class ShowProductsUiState(val products: Products) : ListUiState()
 }

@@ -8,6 +8,7 @@ import cl.arech.uicomponents.template.AttrsInfoTemplate
 
 interface UiComponentProvider {
     val errorTemplateAttrs: AttrsInfoTemplate
+    val emptyTemplateAttrs: AttrsInfoTemplate
 
     fun getSearchInputAttrs(onSubmit: (String) -> Unit) : AttrsAwesomeSearch
     fun getProductListAttrs(products: Products, onClick: (Product) -> Unit) : AttrsProductCardList

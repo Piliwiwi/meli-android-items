@@ -18,6 +18,7 @@ import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchAnothe
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchProductsInitialUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
+import cl.arech.awesomeitems.products.presentation.list.ListUiState.EmptySearchUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ErrorUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.LoadingUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ShowProductsUiState
@@ -117,6 +118,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
             DefaultUiState -> {}
             LoadingUiState -> showLoading()
             ErrorUiState -> showErrorTemplate()
+            EmptySearchUiState -> showEmptySearch()
             is ShowProductsUiState -> showProductList(uiStates.products)
         }
     }
@@ -125,6 +127,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         loader.isVisible = false
         productList.isVisible = false
         errorTemplate.isVisible = false
+        emptyTemplate.isVisible = false
     }
 
     private fun showLoading() = binding?.apply {
@@ -135,6 +138,12 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
         errorTemplate.isVisible = true
 
         errorTemplate.setAttributes(uiProvider.errorTemplateAttrs)
+    }
+
+    private fun showEmptySearch() = binding?.apply {
+        emptyTemplate.isVisible = true
+
+        emptyTemplate.setAttributes(uiProvider.emptyTemplateAttrs)
     }
 
     private fun showProductList(products: Products) = binding?.apply {

@@ -4,6 +4,7 @@ import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsR
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.InProgress
 import cl.arech.awesomeitems.products.presentation.list.ListResult.LoadProductsResult.Success
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.DefaultUiState
+import cl.arech.awesomeitems.products.presentation.list.ListUiState.EmptySearchUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ErrorUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.LoadingUiState
 import cl.arech.awesomeitems.products.presentation.list.ListUiState.ShowProductsUiState
@@ -17,6 +18,7 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
             is DefaultUiState -> currentState reduceWith result
             is LoadingUiState -> currentState reduceWith result
             is ErrorUiState -> currentState reduceWith result
+            is EmptySearchUiState -> currentState reduceWith result
             is ShowProductsUiState -> currentState reduceWith result
         }
     }
@@ -37,6 +39,13 @@ class ListReducer @Inject constructor() : MviReducer<ListUiState, ListResult> {
     }
 
     private infix fun ErrorUiState.reduceWith(result: ListResult): ListUiState {
+        return when (result) {
+            InProgress -> LoadingUiState
+            else -> throw UnsupportedReduceException(this, result)
+        }
+    }
+
+    private infix fun EmptySearchUiState.reduceWith(result: ListResult): ListUiState {
         return when (result) {
             InProgress -> LoadingUiState
             else -> throw UnsupportedReduceException(this, result)
