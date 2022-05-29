@@ -6,11 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Keep
 @Parcelize
-data class Product(
-    val id: String,
-    val title: String,
-    val price: String,
-    val thumbnail: String,
-    val shipping: Shipping,
-    val attributes: List<Attribute>,
+data class Attribute(
+    val name: String,
+    val value: String,
 ) : Parcelable

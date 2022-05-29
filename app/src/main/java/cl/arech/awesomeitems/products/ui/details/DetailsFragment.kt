@@ -4,20 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import cl.arech.awesomeitems.databinding.FragmentProductsDetailsBinding
-import cl.arech.awesomeitems.products.ui.list.ListFragmentArgs
+import cl.arech.awesomeitems.products.ui.provider.UiComponentProvider
+import cl.arech.utils.extension.setImage
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private var binding: FragmentProductsDetailsBinding? = null
+
+    @Inject
+    lateinit var uiProvider: UiComponentProvider
 
     private val args: DetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         if (binding == null)
             binding = FragmentProductsDetailsBinding.inflate(inflater, container, false)
@@ -30,7 +38,13 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setupView() = binding?.apply {
-        testText.text = "Detalles del producto ${args.product}"
+        title.text = args.product.title
+        price.text = args.product.price
+        freeShipping.isVisible = args.product.shipping.hasFreeShipping
+        image.setImage(args.product.thumbnail)
+        detailList.setAttributes(
+            uiProvider.getDetailsAttrs(args.product.attributes)
+        )
     }
 
     override fun onDestroy() {

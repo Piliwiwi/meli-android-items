@@ -32,5 +32,6 @@ android {
 dependencies {
     implementation rootProject.coreKtx
     implementation rootProject.appCompat
+    implementation rootProject.picasso
     implementation rootProject.recyclerView
 }

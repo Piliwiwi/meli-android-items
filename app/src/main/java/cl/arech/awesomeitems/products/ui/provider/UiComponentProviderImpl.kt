@@ -2,10 +2,13 @@ package cl.arech.awesomeitems.products.ui.provider
 
 import android.content.Context
 import cl.arech.awesomeitems.R
+import cl.arech.awesomeitems.products.presentation.list.model.Attribute
 import cl.arech.awesomeitems.products.presentation.list.model.Product
 import cl.arech.awesomeitems.products.presentation.list.model.Products
+import cl.arech.awesomeitems.products.ui.details.AttrsAttributeMapper
 import cl.arech.awesomeitems.products.ui.list.mapper.AttrsProductsMapper
 import cl.arech.uicomponents.component.AttrsAwesomeSearch
+import cl.arech.uicomponents.component.detaillist.AttrsDetail
 import cl.arech.uicomponents.template.AttrsInfoTemplate
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -13,6 +16,7 @@ import javax.inject.Inject
 class UiComponentProviderImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val productsMapper: AttrsProductsMapper,
+    private val attributeMapper: AttrsAttributeMapper,
 ) : UiComponentProvider {
     override val errorTemplateAttrs: AttrsInfoTemplate
         get() = AttrsInfoTemplate(
@@ -31,6 +35,9 @@ class UiComponentProviderImpl @Inject constructor(
         hint = R.string.search_products,
         onSubmit = onSubmit
     )
+
+    override fun getDetailsAttrs(attributes: List<Attribute>): List<AttrsDetail> =
+        with(attributeMapper) { attributes.toAttrs() }
 
     override fun getProductListAttrs(
         products: Products,

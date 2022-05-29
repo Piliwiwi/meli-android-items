@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/ui_margin_16"
+    android:paddingTop="@dimen/ui_margin_16">
+
+    <cl.arech.uicomponents.view.AwesomeText
+        android:id="@+id/item_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:ui_text_type="subtitle"
+        tools:text="Marca" />
+
+    <cl.arech.uicomponents.view.AwesomeText
+        android:id="@+id/item_detail_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:ui_text_type="subtitle"
+        tools:text="Samsung" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ui_size_2"
+        android:layout_marginTop="@dimen/ui_margin_16"
+        android:background="@color/ui_light_gray"
+        app:layout_constraintTop_toBottomOf="@id/item_detail_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -159,7 +159,7 @@ class ListFragment : Fragment(), MviUi<ListUIntent, ListUiState> {
                     navigator.navigateFromListToDetails(view, product)
                 },
                 onScrollEnd = {
-                    
+
                 }
             )
         )

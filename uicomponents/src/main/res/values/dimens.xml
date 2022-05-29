@@ -16,5 +16,12 @@
     <dimen name="ui_margin_36">36dp</dimen>
 
     <!-- Sizes -->
+    <dimen name="ui_size_1">1dp</dimen>
+    <dimen name="ui_size_2">2dp</dimen>
     <dimen name="ui_size_300">300dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="ui_radius_10">10dp</dimen>
+
+
 </resources>

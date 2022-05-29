@@ -22,7 +22,7 @@ class AttrsProductsMapper @Inject constructor() {
         identifier = id,
         imageUrl = thumbnail,
         title = title,
-        value = price.toAmountFormat(),
+        value = price,
         hasFreeShipping = shipping.hasFreeShipping
     )
 }
