@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setAnimation("animations/$AWESOME_LOTTIE_JSON")
         onAnimationEnd {
             navigateToProducts()
+            finish()
         }
     }
 

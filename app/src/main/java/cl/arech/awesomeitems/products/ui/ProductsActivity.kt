@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -28,10 +30,18 @@ class ProductsActivity : AppCompatActivity() {
             val config = AppBarConfiguration(it.graph)
             setSupportActionBar(binding?.toolbar)
             setupActionBarWithNavController(it, config)
-            it.addOnDestinationChangedListener { _, _, _ ->
+            it.addOnDestinationChangedListener { _, destination, _ ->
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 supportActionBar?.setDisplayShowHomeEnabled(true)
+                handleNavigationIcon(destination)
             }
+        }
+    }
+
+    private fun handleNavigationIcon(destination: NavDestination) = binding?.toolbar?.apply {
+        navigationIcon = when (destination.id) {
+            R.id.searchFragment -> null
+            else -> navigationIcon
         }
     }
 
