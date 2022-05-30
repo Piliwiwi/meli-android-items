@@ -2,7 +2,6 @@ package cl.arech.network.retrofit
 
 import android.content.Context
 import cl.arech.network.config.Environment
-import cl.arech.network.config.WebServiceConfig
 import cl.arech.network.config.WebServiceConfig.Url
 import cl.arech.network.retrofit.exception.InvalidEnvironmentException
 
