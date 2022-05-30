@@ -94,3 +94,4 @@ Testingtools module is intended to have a responsability similar to utils, but t
 - Support Dark theme
 - Split Fragment responsabilities in (Fragment lifecycle, RenderUi and userIntentHandler)
 - Load more product pages with an infinite scrolling
+- Test Coverage
