@@ -1,4 +1,8 @@
 # Awesome Items
+Native android application consisting of three screens.
+1. Screen with search bar to look for some products in mercadolibre api.
+2. Screen with the list of product results.
+3. Screen with details of a selected product.
 
 ## Architecture
 ### Packages
@@ -18,7 +22,7 @@ Domain layer is not considered necessary because we dont have a complex business
 Inside each layer we can see one class *(or more in case of have multiple viewmodels)* that represent the layer entry point. All other classes are hidden by its package, so we can inmediatly see each layer entry point when open its package.\
 ***Repository*** is Data layer entry point.\
 ***ViewModels*** are Presentation layer entry points.\
-***Activity*** is Ui layer entry point.\
+***Activity*** is Ui layer entry point.
 
 ### MVVM
 We use Model-View-ViewModel pattern.\
@@ -27,8 +31,12 @@ For this project, we only have one ViewModel in product list view.
 
 ### MVI
 Model-View-Intent is not a very common pattern but its have a lot of cool benefits!.\
-With this pattern we can manage an unidirectional reactive data flow and adionally we totally decouple ui and presentation layer. That means that we can totally change presentation or ui layer without affecting each other!.
-
+With this pattern we can manage an unidirectional reactive data flow and adionally we totally decouple ui and presentation layer. That means that we can totally change presentation or ui layer without affecting each other!.\
+\
+We implement this pattern inside ***presentation layer***. In that layer we recognize each screen that have a remote/cache logic to use mvi on it.\
+Then we observe app state changes and user intents in ***ui layer***.\
+This pattern doesn't affect ***data layer***.\
+\
 **Mvi Architecture Diagram Concept**
 ![mvi](https://user-images.githubusercontent.com/35037350/170899300-898e278d-4aca-470f-a7ec-22f01fc533ab.png)
 
@@ -45,7 +53,7 @@ To be able to choose one of those supports, we use **Environments**, this enviro
 ### ui-components
 All ui components have cathegories like: ***component***, ***group component***, ***template*** or ***view***.\
 \
-All components are intended to have a **attribute contract** that are initialized with an unique public method named ***setAttributes*** (some components may have more public methods in spaecial cases). This way of working with components allow us to generalize the way components are initialized in our application, make it more easy from developers to manage any component.
+All components are intended to have an ***attribute contract*** that are initialized with an unique public method named ***setAttributes*** (some components may have more public methods in special cases). This way of working with components allow us to generalize the way components are initialized in our application, make it more easy from developers to manage any component.
 
 
 ### mvi
