@@ -4,6 +4,11 @@ Native android application consisting of three screens.
 2. Screen with the list of product results.
 3. Screen with details of a selected product.
 
+## Usage
+In order to run the application in Android Studio, we need to choose the build variant.\
+Use ***RemoteDebug*** to consume mercadolibre api with internet connection.\
+Use ***LocalDebug*** to read a json file in **app->assets->mock.api->search_get.json**. You can manipulate the data inside that file in order to see diferent results in the app.
+
 ## Architecture
 ### Packages
 We recognize domain flows for our app that become a package. Inside this domain we recognize differents flows that can have.\
