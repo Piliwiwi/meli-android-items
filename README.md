@@ -25,6 +25,21 @@ Utils module manage some of shared logic and extensions, that allow us to compac
 ### testingtools
 Testingtools module is intended to have a responsability similar to utils, but thinking only for testing porpuses.
 
+## Tools
+- Networking -> ***Retrofit2*** and ***OKHttp***
+- Network Logger -> ***OKHttp-LoggingInterceptor***
+- JsonConverter -> ***Moshi***
+- Dependency Injector -> ***Hilt***
+- Navigation -> ***Jetpack Navigation*** and ***safeArgs***
+- Views -> ***ViewBinding*** and ***Xmls***
+- Animations -> ***Lottie***
+- Image render -> ***Picasso***
+- Base Ui -> ***Material***
+- Asynchrony -> ***Kotlin Coroutines*** and ***Flow***
+- Parcelable generator -> ***Kotlin-parcelize***
+- Unit Tests -> ***JUNIT5***
+- Mocks -> ***Mockk***
+
 ## Possible improvements
 - Linter (with Ktlint or Detekt)
 - Create Hilt componets per flow
