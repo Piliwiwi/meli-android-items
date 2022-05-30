@@ -1,5 +1,34 @@
 # Awesome Items
 
+## Architecture
+### Packages
+We recognize domain flows for our app that become a package. Inside this domain we recognize differents flows that can have.\
+*For Example:* \
+*Mutual Funds is a Product ***Domain****\
+*List mutual funds is a* ***flow*** **inside that domain**\
+*Take a mutual fund is another ***flow*** **inside that domain***\
+\
+For this project we don't have much information, therefore we recognize only a Domain/Flow named products.
+
+### Clean Architecture
+Package strategy is based on clean architecture principles.\
+Using ***Data***, ***Presentation*** and ***Ui*** layer inside a recognized flow.\
+Domain layer is not considered necessary because we dont have a complex business logic to manage.\
+\
+Inside each layer we can see one class *(or more in case of have multiple viewmodels)* that represent the layer entry point. All other classes are hidden by its package, so we can inmediatly see each layer entry point when open its package.\
+***Repository*** is Data layer entry point.\
+***ViewModels*** are Presentation layer entry points.\
+***Activity*** is Ui layer entry point.\
+
+### MVVM
+We use Model-View-ViewModel pattern.\
+We create a ViewModel for each screen-logic combo. Like screen/remote-call or screen/cache-logic.\
+For this project, we only have one ViewModel in product list view.
+
+### MVI
+Model-View-Intent is not a very common pattern but its have a lot of cool benefits!.\
+With this pattern we can manage an unidirectional reactive data flow and adionally we totally decouple ui and presentation layer. That means that we can totally change presentation or ui layer without affecting each other!.
+
 ## Modules
 In order to modularize our project, we create some gradle modules which are described below.
 
