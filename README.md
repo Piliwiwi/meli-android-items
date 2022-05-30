@@ -7,7 +7,8 @@ Native android application consisting of three screens.
 ## Usage
 In order to run the application in Android Studio, we need to choose the build variant.\
 Use ***RemoteDebug*** to consume mercadolibre api with internet connection.\
-Use ***LocalDebug*** to read a json file in **app->assets->mock.api->search_get.json**. You can manipulate the data inside that file in order to see diferent results in the app.
+Use ***LocalDebug*** to read a json file in **app->assets->mock.api->search_get.json**. You can manipulate the data inside that file in order to see diferent results in the app.\
+You can force an error in LocalDebug if you change an atribute type value. For example, ***"id": false***.
 
 ## Architecture
 ### Packages
