@@ -20,6 +20,9 @@ class SearchFragment : Fragment() {
     @Inject
     lateinit var uiProvider: UiComponentProvider
 
+    @Inject
+    lateinit var navigator: ProductsNavigator
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,7 +41,7 @@ class SearchFragment : Fragment() {
     private fun setupSearch() = binding?.apply {
         searchInput.setAttributes(
             uiProvider.getSearchInputAttrs { query ->
-                ProductsNavigator().navigateFromSearchToList(view, query)
+                navigator.navigateFromSearchToList(view, query)
             }
         )
     }

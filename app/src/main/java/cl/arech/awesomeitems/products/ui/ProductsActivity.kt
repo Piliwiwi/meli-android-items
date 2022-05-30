@@ -28,7 +28,7 @@ class ProductsActivity : AppCompatActivity() {
             val config = AppBarConfiguration(it.graph)
             setSupportActionBar(binding?.toolbar)
             setupActionBarWithNavController(it, config)
-            it.addOnDestinationChangedListener { _, destination, _ ->
+            it.addOnDestinationChangedListener { _, _, _ ->
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 supportActionBar?.setDisplayShowHomeEnabled(true)
             }

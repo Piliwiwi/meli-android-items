@@ -6,7 +6,6 @@ import cl.arech.awesomeitems.products.presentation.list.ListAction.LoadProductsA
 import cl.arech.awesomeitems.products.presentation.list.ListProcessor
 import cl.arech.awesomeitems.products.presentation.list.ListReducer
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent
-import cl.arech.awesomeitems.products.presentation.list.ListUIntent.RetrySearchUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchAnotherProductsUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUIntent.SearchProductsInitialUIntent
 import cl.arech.awesomeitems.products.presentation.list.ListUiState
@@ -53,7 +52,6 @@ class ListViewModel @Inject constructor(
     private fun ListUIntent.toAction() =
         when (this) {
             is SearchProductsInitialUIntent -> LoadProductsAction(query)
-            is RetrySearchUIntent -> LoadProductsAction(query)
             is SearchAnotherProductsUIntent -> LoadProductsAction(query)
         }
 
