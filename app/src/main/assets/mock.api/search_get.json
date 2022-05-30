@@ -4,19 +4,53 @@
       "id": "MLA810645375",
       "title": "Motorola G6 Plus 64 Gb Nimbus",
       "price": 17999,
+      "available_quantity": 100,
       "thumbnail": "https://mla-s2-p.mlstatic.com/795558-MLA31003306206_062019-I.jpg",
       "shipping": {
         "free_shipping": false
-      }
+      },
+      "attributes": [
+        {
+          "name": "Atributo1",
+          "value_name": "Valor1"
+        },
+        {
+          "name": "Atributo2",
+          "value_name": "Valor2"
+        },
+        {
+          "name": "Atributo3",
+          "value_name": "Valor3"
+        },
+        {
+          "name": "Atributo4",
+          "value_name": "Valor4"
+        },
+        {
+          "name": "Atributo5",
+          "value_name": "Valor5"
+        },
+        {
+          "name": "Atributo6",
+          "value_name": "Valor6"
+        }
+      ]
     },
     {
       "id": "MLA805330648",
       "title": "Motorola G6 32 Gb Plata",
       "price": 14899,
+      "available_quantity": 3,
       "thumbnail": "https://mla-s1-p.mlstatic.com/685061-MLA31003463570_062019-I.jpg",
       "shipping": {
         "free_shipping": true
-      }
+      },
+      "attributes": [
+        {
+          "name": "Marca",
+          "value_name": "Motorola"
+        }
+      ]
     }
   ]
 }
