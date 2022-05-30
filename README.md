@@ -26,12 +26,12 @@ Inside each layer we can see one class *(or more in case of have multiple viewmo
 
 ### MVVM
 We use Model-View-ViewModel pattern.\
-We create a ViewModel for each screen-logic combo. Like screen/remote-call or screen/cache-logic.\
+We create a ViewModel for each screen-logic combo. Like screen/remote-call and/or screen/cache-logic.\
 For this project, we only have one ViewModel in product list view.
 
 ### MVI
 Model-View-Intent is not a very common pattern but its have a lot of cool benefits!.\
-With this pattern we can manage an unidirectional reactive data flow and adionally we totally decouple ui and presentation layer. That means that we can totally change presentation or ui layer without affecting each other!.\
+With this pattern we can manage an unidirectional reactive data flow and aditionally we totally decouple ui and presentation layer. That means that we can totally change presentation or ui layer without affecting each other!.\
 \
 We implement this pattern inside ***presentation layer***. In that layer we recognize each screen that have a remote/cache logic to use mvi on it.\
 Then we observe app state changes and user intents in ***ui layer***.\
