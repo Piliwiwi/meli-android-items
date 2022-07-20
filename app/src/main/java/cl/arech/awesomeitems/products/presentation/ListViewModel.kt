@@ -34,6 +34,7 @@ class ListViewModel @Inject constructor(
     private val defaultUiState: ListUiState = DefaultUiState
     private val uiState: MutableStateFlow<ListUiState> = MutableStateFlow(defaultUiState)
 
+    // Hola aqui va un cambio
     override fun processUserIntents(userIntents: Flow<ListUIntent>) {
         userIntents
             .buffer()
